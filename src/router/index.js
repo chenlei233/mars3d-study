@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
@@ -8,16 +7,43 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: { path: '/coordinate' },
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/coordinate',
+    name: 'coordinate',
+    component: () => import('@/views/coordinate.vue'),
+  },
+  {
+    path: '/draw',
+    name: 'draw',
+    component: () => import('@/views/draw.vue')
+  },
+  {
+    path: '/geojson',
+    name: 'geojson',
+    component: () => import('@/views/geojson.vue')
+  },
+  {
+    path: '/area',
+    name: 'area',
+    component: () => import('@/views/area.vue')
+  },
+  {
+    path: '/z-index',
+    name: 'z-index',
+    component: () => import('@/views/z-index.vue')
+  },
+  {
+    path: '/wms',
+    name: 'wms',
+    component: () => import('@/views/wms.vue')
+  },
+  {
+    path: '/orbital',
+    name: 'orbital',
+    component: () => import('@/views/orbital.vue')
+  },
 ]
 
 const router = new VueRouter({
